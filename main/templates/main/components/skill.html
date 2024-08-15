@@ -1,0 +1,27 @@
+<div class="col mb-3">
+    <div class="row">
+        <p class="fw-medium mb-1">{{ skill }}</p>
+    </div>
+    <div class="row">
+        <p class="mb-1 fw-light">
+        {% if level <= 1 %}
+        NOVICE
+        {% elif level == 2 %}
+        ADVANCED BEGINNER
+        {% elif level == 3 %}
+        COMPETENT
+        {% elif level == 4 %}
+        PROFICIENT
+        {% else %}
+        EXPERT
+        {% endif %}
+        </p>
+    </div>
+    <div class="row justify-content-start">
+        {% for _ in ''|center:5 %}
+        <div class="col-1">
+            <div class="rounded-circle border border-2 border-info {% if forloop.counter <= level %}bg-info{% endif %}" style="width: 12px; height: 12px;"></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

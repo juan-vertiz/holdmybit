@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row gx-5">
+    <div class="col-md-8">
+        <div class="row">
+            <h2>About me</h2>
+            <p>My name is <span class="fw-medium">Juan Pablo Vertiz</span>. As a Software Developer, I specialize in building web applications, and automating tests and robotic processes that meet client needs. My approach prioritizes quality in every task, alongside a strong commitment to meeting deadlines.</p>
+            <p>Guided by the core human values of <i>respect</i>, <i>honesty</i>, <i>loyalty</i>, and <i>coherence</i>, I consistently strive for excellence.</p>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="row mb-2">
+                <h2>Experience</h2>
+            </div>
+            <div class="row">
+                <p class="fs-5 mb-0">TEST AUTOMATION ENGINEER <span class="text-body-secondary">@ NEORIS</span></p>
+                <p class="fs-6">2022 - TODAY</p>
+                <ul class="ms-4">
+                    <li>Built automation scripts based on previously designed test cases for different customers using Robot Framework with Playwright and Selenium.</li>
+                    <li>Built an automation script for finance report generation using Robot Framework with Selenium achieving a drastic reduction in report generation time from 2 days to 20 minutes.</li>
+                    <li>Built a Python CLI tool for monitoring public repositories and users hosted on GitHub that contain the keyword <code>NEORIS</code> in their metadata using the GitHub GraphQL API, storing the data in a local SQLite database and sending email notifications when changes are detected.</li>
+                    <li>Built and presented proof-of-concept projects to customers, demonstrating the potential and effectiveness of our solutions.</li>
+                    <li>Conducted technical interviews for candidates ranging from Trainee to Experienced levels, contributing to the growth and quality of our technical team.</li>
+                </ul>
+            </div>
+            <div class="row">
+                <p class="fs-5 mb-0">FULL-STACK DEVELOPER <span class="text-body-secondary">@ YANFENG</span></p>
+                <p class="fs-6">2021 - 2022</p>
+                <ul class="ms-4">
+                    <li>Managed project planning using Microsoft Project to ensure efficient execution.</li>
+                    <li>Developed a web-based application to manage the weekly production schedule:</li>
+                    <ul>
+                        <li>Implemented back-end functionality using PHP with CodeIgniter.</li>
+                        <li>Created front-end interface with vanilla JavaScript and CSS for a seamless user experience.</li>
+                        <li>Design and maintained a MySQL database to store and manage production data.</li>
+                        <li>Authored comprehensive documentation for future reference and maintenance.</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <hr class="d-md-none">
+        <div class="row mb-2">
+            <h2>Education</h2>
+        </div>
+        <div class="row mb-3">
+            <div class="row">
+                <p class="fs-5 mb-0">COMPUTER SYSTEMS ENGINEERING <span class="text-body-secondary">@ TecNM</span></p>
+                <p class="fs-6">2018 - 2023</p>
+            </div>
+            <div class="row">
+                <p class="fs-5 mb-0">TECHNICAL DEGREE IN PROGRAMMING <span class="text-body-secondary">@ CECyTE</span></p>
+                <p class="fs-6">2015 - 2018</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row mb-2">
+            <h2>Skills</h2>
+        </div>
+        <div class="row mb-3">
+            <div class="row">
+                <p class="fs-5">Tech stack</p>
+            </div>
+            <div class="row row-cols-2 row-cols-md-1 row-cols-xl-2 justify-content-start">
+                {% for skill, level in skills.items %}
+                {% include 'main/components/skill.html' %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <p class="fs-5">Languages</p>
+            </div>
+            <div class="row row-cols-2 row-cols-md-1 row-cols-xl-2 justify-content-start">
+                {% for skill, level in languages.items %}
+                {% include "main/components/skill.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
