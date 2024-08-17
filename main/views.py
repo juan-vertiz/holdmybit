@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .forms import ContactForm
+
 # Create your views here.
 def index(request):
     """View function for Home page"""
@@ -24,5 +26,19 @@ def index(request):
 
 def contact(request):
     """View function for Contact page"""
-    
-    return render(request=request, template_name="main/contact.html")
+    context = {}
+
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # TODO: Handle email sending
+            context["success"] = True
+            context["form"] = ContactForm()
+        else:
+            for field in form.errors:
+                form[field].field.widget.attrs["class"] += " is-invalid"
+            context["form"] = form
+    else:
+        context["form"] = ContactForm()
+
+    return render(request=request, template_name="main/contact.html", context=context)
